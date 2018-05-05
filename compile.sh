@@ -1,1 +1,0 @@
-g++ -I./lib/cbignum/ src/test.cc lib/cbignum/Cbignum.cpp lib/cbignum/Cbignumf.cpp lib/cbignum/Cbignums.cpp lib/cbignum/Ctty.cpp lib/cbignum/Exarray.cpp lib/cbignum/Gettimer.c lib/cbignum/Prime.cpp -o test
