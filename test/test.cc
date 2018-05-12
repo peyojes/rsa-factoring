@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/prime.h"
+#include "../include/prime.h"
 
 TEST(testPrime, initianlPrime) {
 //  Prime prime;
