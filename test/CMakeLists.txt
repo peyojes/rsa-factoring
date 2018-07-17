@@ -6,4 +6,4 @@ include_directories(${GTEST_INCLUDE_DIRS})
  
 # Link runTests with what we want to test and the GTest and pthread library
 add_executable(runTests test.cc )
-target_link_libraries(runTests ${GTEST_LIBRARIES} pthread -lgmpxx -lgmp)
+target_link_libraries(runTests ${GTEST_LIBRARIES} pthread)

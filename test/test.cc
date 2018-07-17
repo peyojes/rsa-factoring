@@ -26,8 +26,6 @@ TEST(multiplication, Prime) {
   Prime prime(2);
   prime *= prime;
   EXPECT_EQ(4, prime.toInt());
-//  prime = prime * prime;
-//  EXPECT_EQ(16, prime.get_si());
 }
 
 //TEST(EulerFunction, integer) {
