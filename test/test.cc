@@ -28,11 +28,25 @@ TEST(multiplication, Prime) {
   EXPECT_EQ(4, prime.toInt());
 }
 
-//TEST(EulerFunction, integer) {
-//  Prime prime(3);
-//  prime.EulerFunction(4);
-//  EXPECT_EQ(6, prime.get_si());
-//}
+TEST(EulerFunction, Prime) {
+  Prime prime(3), four_tmp(4);
+  prime.EulerFunction(four_tmp);
+  EXPECT_EQ(6, prime.toInt());
+}
+
+TEST(EulerFunction, integer) {
+  Prime prime(3);
+  prime.EulerFunction(4);
+  EXPECT_EQ(6, prime.toInt());
+}
+
+TEST(EulerFunction, string) {
+  Prime prime(3);
+  Prime local = prime;
+  prime.EulerFunction("4");
+  EXPECT_EQ(6, prime.toInt());
+  EXPECT_EQ(3, local.toInt());
+}
 
 GTEST_API_ int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
