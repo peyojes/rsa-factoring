@@ -1,13 +1,13 @@
 #include <string>
 #include <iostream>
 
-#include "gmpxx.h"
+#include "InfInt.h"
 
-class Prime : public mpz_class {
+class Prime : public InfInt {
  public:
-  Prime() : mpz_class() {}
-  Prime(const int number): mpz_class(number) {}
-  Prime(const std::string &number) : mpz_class(number) {}
+  Prime() : InfInt() {}
+  Prime(const int number): InfInt(number) {}
+  Prime(const std::string &number) : InfInt(number) {}
 
 //  Prime EulerFunction(const int q) {
 //    Prime result(q);
