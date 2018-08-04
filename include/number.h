@@ -21,7 +21,7 @@ class Number : public InfInt {
   bool IsRelativelyPrime(const Number &num);
 };
 
-bool Number::IsPrime() {
+inline bool Number::IsPrime() {
   Number it(kTwo), tmp, sqrt = intSqrt();
   bool result = true;
   sqrt++;
@@ -36,13 +36,14 @@ bool Number::IsPrime() {
   return result;
 }
 
-void Number::NextPrime() {
+inline void Number::NextPrime() {
   for (; !this->IsPrime();this->operator++());
 }
 
-bool Number::IsRelativelyPrime(const Number &num) {
-  Number greater_num = *this < num ? *this: num;
-  Number limit_num = greater_num / kTwo;
+inline bool Number::IsRelativelyPrime(const Number &num) {
+  Number greater_num = *this < num ? num: *this;
+  Number less_num = *this < num ? *this: num;
+  Number limit_num = less_num / kTwo;
   Number it(kTwo), modulo_result_this, modulo_result_num;
   bool result = true;
 
@@ -56,7 +57,11 @@ bool Number::IsRelativelyPrime(const Number &num) {
     }
   }
 
+  if (greater_num % less_num == 0) {
+    result = false;
+  }
+
   return result;
 }
+#endif  // NUMBER_H_
 
-#endif //  NUMBER_H_
