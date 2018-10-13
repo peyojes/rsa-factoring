@@ -17,16 +17,17 @@ class RsaData {
   Number GetValueOfEulerFunction() const;
   Number GetModulus() const;
   void SetModulus(const Number& mod);
+  void SetPublicKey(const Number& public_key);
 
 protected:
   void FindPrivateKey();
   void CalculateEulerFunction();
-  Number public_key_;
 
 private:
   Number p_;
   Number q_;
   Number value_of_euler_fun_;
+  Number public_key_;
   Number private_key_;
   Number modulus_;
 };
@@ -77,10 +78,14 @@ inline void RsaData::SetModulus(const Number &mod) {
   modulus_ = mod;
 }
 
+inline void RsaData::SetPublicKey(const Number &public_key) {
+  public_key_ = public_key;
+}
+
 inline void RsaData::FindPrivateKey() {
   if (value_of_euler_fun_ == 0 || public_key_ == 0) {
     std::cout << "Wronge input params(public_key or value_of_euler_fun is 0)"
-                 "in function FindPrivateKey\n";
+                 "in FindPrivateKey function\n";
     return;
   }
 
