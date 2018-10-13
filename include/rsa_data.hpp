@@ -32,7 +32,7 @@ RsaData::RsaData(): p_(kZero), q_(kZero), value_of_euler_fun_(kZero),
 }
 
 RsaData::RsaData(const Number &p, const Number &q)
-  :p_(p), q_(q), modulus_(p*q), value_of_euler_fun_((p-1)*(q-1)) {
+  :p_(p), q_(q), value_of_euler_fun_((p-1)*(q-1)), modulus_(p*q) {
 
   Number it = value_of_euler_fun_ / kTwo;
   for (; it < value_of_euler_fun_; it++) {

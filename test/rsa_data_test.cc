@@ -26,5 +26,4 @@ TEST(RsaData, SetModulus) {
   RsaData data;
   data.SetModulus(30);
   EXPECT_EQ(data.GetModulus(), 30);
-
 }
