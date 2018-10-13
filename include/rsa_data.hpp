@@ -16,6 +16,9 @@ class RsaData {
   Number GetModulus() const;
   void SetModulus(const Number& mod);
 
+protected:
+  void FindPrivateKey();
+
 private:
   Number p_;
   Number q_;
@@ -24,7 +27,6 @@ private:
   Number private_key_;
   Number modulus_;
 
-  void FindPrivateKey();
 };
 
 RsaData::RsaData(): p_(kZero), q_(kZero), value_of_euler_fun_(kZero),
