@@ -32,11 +32,11 @@ private:
   Number modulus_;
 };
 
-RsaData::RsaData(): p_(kZero), q_(kZero), value_of_euler_fun_(kZero),
+inline RsaData::RsaData(): p_(kZero), q_(kZero), value_of_euler_fun_(kZero),
   public_key_(kZero), private_key_(kZero), modulus_(kZero) {
 }
 
-RsaData::RsaData(const Number &p, const Number &q)
+inline RsaData::RsaData(const Number &p, const Number &q)
   :p_(p), q_(q), value_of_euler_fun_((p-1)*(q-1)), modulus_(p*q) {
 
   Number it = value_of_euler_fun_ / kTwo;
@@ -103,7 +103,7 @@ inline void RsaData::FindPrivateKey() {
   }
 }
 
-void RsaData::CalculateEulerFunction() {
+inline void RsaData::CalculateEulerFunction() {
   if (p_ == 0 || q_ == 0) {
     std::cout << "RsaData: Wronge input params(p_ or q_ is 0) in "
                  "CalculateEulerFunction function\n";

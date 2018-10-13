@@ -27,3 +27,9 @@ TEST(RsaData, SetModulus) {
   data.SetModulus(30);
   EXPECT_EQ(data.GetModulus(), 30);
 }
+
+TEST(RsaData, SetPublicKey) {
+  RsaData data;
+  data.SetPublicKey(30);
+  EXPECT_EQ(30, data.GetPublicKey().toInt());
+}
