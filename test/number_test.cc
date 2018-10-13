@@ -66,3 +66,9 @@ TEST(Number, IsReletivelyPrimeFalse14and21) {
   EXPECT_FALSE(num14.IsRelativelyPrime(num21));
   EXPECT_FALSE(num21.IsRelativelyPrime(num14));
 }
+
+TEST(Number, IsReletivelyPrimeFalse2and14) {
+  Number num14(14), num2(2);
+  EXPECT_FALSE(num14.IsRelativelyPrime(num2));
+  EXPECT_FALSE(num2.IsRelativelyPrime(num14));
+}
