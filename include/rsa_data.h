@@ -22,13 +22,13 @@ class RsaData {
 protected:
   void FindPrivateKey();
   void CalculateEulerFunction();
-
-private:
+  Number private_key_;
   Number p_;
   Number q_;
+
+private:
   Number value_of_euler_fun_;
   Number public_key_;
-  Number private_key_;
   Number modulus_;
 };
 

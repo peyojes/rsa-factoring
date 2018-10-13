@@ -2,7 +2,7 @@
 #define FACTORING_METHOD_INTERFACE_H
 #include "rsa_data.h"
 
-class FactoringMethodInterface : public RsaData {
+class FactoringMethodInterface {
  public:
   virtual void Factoring() = 0;
 };

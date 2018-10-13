@@ -16,12 +16,12 @@ class Number : public InfInt {
   Number(const std::string& number): InfInt(number) {}
   Number(const InfInt& number): InfInt(number) {}
 
-  bool IsPrime();
+  bool IsPrime() const;
   void NextPrime();
   bool IsRelativelyPrime(const Number &num);
 };
 
-inline bool Number::IsPrime() {
+inline bool Number::IsPrime() const {
   Number it(kTwo), tmp, sqrt = intSqrt();
   bool result = true;
   sqrt++;
