@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../include/rsa_data.hpp"
+#include "../include/rsa_data.h"
 
 TEST(RsaData, emptyInitialization) {
   RsaData data;
