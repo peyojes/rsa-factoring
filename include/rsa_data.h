@@ -3,6 +3,8 @@
 
 #include "number.h"
 
+#include<iostream>
+
 class RsaData {
  public:
   RsaData();
@@ -18,6 +20,7 @@ class RsaData {
 
 protected:
   void FindPrivateKey();
+  void CalculateEulerFunction();
   Number public_key_;
 
 private:
@@ -75,6 +78,12 @@ inline void RsaData::SetModulus(const Number &mod) {
 }
 
 inline void RsaData::FindPrivateKey() {
+  if (value_of_euler_fun_ == 0 || public_key_ == 0) {
+    std::cout << "Wronge input params(public_key or value_of_euler_fun is 0)"
+                 "in function FindPrivateKey\n";
+    return;
+  }
+
   Number it(3);
   for (; it < value_of_euler_fun_; it++) {
     if (((public_key_ * it) % value_of_euler_fun_) == 1) {
@@ -82,6 +91,20 @@ inline void RsaData::FindPrivateKey() {
       break;
     }
   }
+
+  if (private_key_ == 0) {
+    std::cout << "RsaData: Don't find private key.\n";
+    return;
+  }
+}
+
+void RsaData::CalculateEulerFunction() {
+  if (p_ == 0 || q_ == 0) {
+    std::cout << "RsaData: Wronge input params(p_ or q_ is 0) in "
+                 "CalculateEulerFunction function\n";
+  }
+
+  value_of_euler_fun_ = (p_ - 1) * (q_ - 1);
 }
 
 #endif  // RSA_DATA_HPP_
