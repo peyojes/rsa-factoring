@@ -8,6 +8,11 @@ using std::cout;
 
 int main(int argc, char **argv) {
 
+  if (argc != 2) {
+    cout << "Wrong input parameters!\n"
+              "\tusage: a.out number\n";
+    return 0;
+  }
   string str_number = argv[1];
   Number number(str_number), it(2);
   unsigned int count = 0;

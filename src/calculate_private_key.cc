@@ -8,6 +8,11 @@ using std::cout;
 
 int main(int argc, char **argv) {
 
+  if (argc != 3) {
+    cout << "Wrong input parameters!\n"
+              "\tusage: a.out public_key modulus\n";
+    return 0;
+  }
   string str_public_key = argv[1];
   string str_val_of_euler_func = argv[2];
   Number public_key(str_public_key),
