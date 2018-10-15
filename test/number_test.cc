@@ -83,3 +83,14 @@ TEST(Number, IsPrimeStartForMiddleTrue) {
   EXPECT_TRUE(number.IsPrimeStartMiddle());
 }
 
+TEST(Number, Absolute) {
+  Number num1(10), num2(15);
+  EXPECT_EQ(5, num1.AbsolutSubtraction(num2).toInt());
+  EXPECT_EQ(5, num2.AbsolutSubtraction(num1).toInt());
+}
+
+TEST(Number, Gcd) {
+  Number num1(20), num2(200);
+  EXPECT_EQ(20, num1.Gcd(num2).toInt());
+  EXPECT_EQ(20, num2.Gcd(num1).toInt());
+}

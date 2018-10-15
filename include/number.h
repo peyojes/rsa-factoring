@@ -20,6 +20,9 @@ class Number : public InfInt {
   bool IsPrimeStartMiddle() const;
   void NextPrime();
   bool IsRelativelyPrime(const Number &num);
+  Number AbsolutSubtraction(const Number& num);
+  Number Gcd(const Number& num) const;
+
 };
 
 inline bool Number::IsPrime() const {
@@ -78,5 +81,20 @@ inline bool Number::IsRelativelyPrime(const Number &num) {
 
   return result;
 }
+
+inline Number Number::AbsolutSubtraction(const Number &num) {
+  return *this > num ? *this - num: num - *this;
+}
+
+inline Number Number::Gcd(const Number &num) const {
+  Number remainder, this_value(*this), num_value(num), zero(0);
+  while (num_value != zero) {
+    remainder = this_value % num_value;
+    this_value = num_value;
+    num_value = remainder;
+  }
+  return this_value;
+}
+
 #endif  // NUMBER_H_
 
