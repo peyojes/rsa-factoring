@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../include/rsa_data.hpp"
+#include "../include/rsa_data.h"
 
 TEST(RsaData, emptyInitialization) {
   RsaData data;
@@ -26,4 +26,10 @@ TEST(RsaData, SetModulus) {
   RsaData data;
   data.SetModulus(30);
   EXPECT_EQ(data.GetModulus(), 30);
+}
+
+TEST(RsaData, SetPublicKey) {
+  RsaData data;
+  data.SetPublicKey(30);
+  EXPECT_EQ(30, data.GetPublicKey().toInt());
 }

@@ -72,3 +72,14 @@ TEST(Number, IsReletivelyPrimeFalse2and14) {
   EXPECT_FALSE(num14.IsRelativelyPrime(num2));
   EXPECT_FALSE(num2.IsRelativelyPrime(num14));
 }
+
+TEST(Number, IsPrimeStartForMiddleFalse) {
+  Number number(10);
+  EXPECT_FALSE(number.IsPrimeStartMiddle());
+}
+
+TEST(Number, IsPrimeStartForMiddleTrue) {
+  Number number(103);
+  EXPECT_TRUE(number.IsPrimeStartMiddle());
+}
+

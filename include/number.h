@@ -16,16 +16,31 @@ class Number : public InfInt {
   Number(const std::string& number): InfInt(number) {}
   Number(const InfInt& number): InfInt(number) {}
 
-  bool IsPrime();
+  bool IsPrime() const;
+  bool IsPrimeStartMiddle() const;
   void NextPrime();
   bool IsRelativelyPrime(const Number &num);
 };
 
-inline bool Number::IsPrime() {
+inline bool Number::IsPrime() const {
   Number it(kTwo), tmp, sqrt = intSqrt();
   bool result = true;
   sqrt++;
   for (; it <= sqrt; it++) {
+    tmp = *this % it;
+    if (tmp == kZero) {
+      result = false;
+      break;
+    }
+  }
+
+  return result;
+}
+
+inline bool Number::IsPrimeStartMiddle() const {
+  Number it(intSqrt()++), tmp;
+  bool result = true;
+  for (; it >= 2; it--) {
     tmp = *this % it;
     if (tmp == kZero) {
       result = false;
