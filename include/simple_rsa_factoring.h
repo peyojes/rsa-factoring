@@ -6,13 +6,20 @@
 class SimpleRsaFactoringStartingFromBeginning
     : public RsaData, FactoringMethodInterface {
  public:
-  SimpleRsaFactoringStartingFromBeginning(): RsaData() {}
   void Factoring();
 
-private:
+ protected:
   void CalculatePQAndPrivateKey(const Number& iterator);
   void CalculateIfItIsPrime(const Number& iterator, Number& rest_with_division);
 };
+
+
+class SimpleRsaFactoringStartingFromMiddle
+    : public SimpleRsaFactoringStartingFromBeginning {
+ public:
+  void Factoring();
+};
+
 
 void SimpleRsaFactoringStartingFromBeginning::Factoring() {
   Number it(2), rest_with_division, sqrt = (GetModulus().intSqrt())++;
@@ -40,4 +47,11 @@ void SimpleRsaFactoringStartingFromBeginning::CalculatePQAndPrivateKey(
   FindPrivateKey();
 }
 
+void SimpleRsaFactoringStartingFromMiddle::Factoring() {
+  Number it(GetModulus().intSqrt()++), rest_with_division;
+  for (; it >= 2; it--) {
+    CalculateIfItIsPrime(it, rest_with_division);
+  }
+}
 #endif // SIMPLE_RSA_FACTORING_H
+

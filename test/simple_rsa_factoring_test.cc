@@ -41,3 +41,21 @@ TEST(SimpleRsaFactoringStartingFromBeginning, moreComplicatedFactoring) {
   EXPECT_EQ(113, simp_factor.GetPrivateKey().toInt());
   EXPECT_EQ(17, simp_factor.GetPublicKey().toInt());
 }
+
+TEST(SimpleRsaFactoringStartingFromMiddle, factoring) {
+  SimpleRsaFactoringStartingFromMiddle simp_factor;
+  simp_factor.SetModulus(143);
+  simp_factor.SetPublicKey(17);
+  simp_factor.Factoring();
+  int  p(simp_factor.GetP().toInt());
+  int  q(simp_factor.GetQ().toInt());
+  bool result = false;
+  if ((p == 11 && q == 13) ||(p == 11 && q == 13)) {
+    result = true;
+  }
+
+  EXPECT_TRUE(result);
+  EXPECT_EQ(120, simp_factor.GetValueOfEulerFunction().toInt());
+  EXPECT_EQ(113, simp_factor.GetPrivateKey().toInt());
+  EXPECT_EQ(17, simp_factor.GetPublicKey().toInt());
+}
