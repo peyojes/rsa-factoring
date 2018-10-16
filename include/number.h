@@ -22,6 +22,7 @@ class Number : public InfInt {
   bool IsRelativelyPrime(const Number &num);
   Number AbsolutSubtraction(const Number& num);
   Number Gcd(const Number& num) const;
+  bool IsSqrt() const;
 
 };
 
@@ -94,6 +95,10 @@ inline Number Number::Gcd(const Number &num) const {
     num_value = remainder;
   }
   return this_value;
+}
+
+inline bool Number::IsSqrt() const {
+  return intSqrt() * intSqrt() == *this ? true : false;
 }
 
 #endif  // NUMBER_H_

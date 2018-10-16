@@ -94,3 +94,13 @@ TEST(Number, Gcd) {
   EXPECT_EQ(20, num1.Gcd(num2).toInt());
   EXPECT_EQ(20, num2.Gcd(num1).toInt());
 }
+
+TEST(Number, IsSqrtTrue) {
+  Number num(25);
+  EXPECT_TRUE(num.IsSqrt());
+}
+
+TEST(Number, IsSqrtFalse) {
+  Number num(20);
+  EXPECT_FALSE(num.IsSqrt());
+}
