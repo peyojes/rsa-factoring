@@ -44,9 +44,9 @@ TEST(Number, IsPrime20False) {
 }
 
 TEST(Number, NextPrime4) {
-  Number num(4);
+  Number num(7);
   num.NextPrime();
-  EXPECT_EQ(5, num.toInt());
+  EXPECT_EQ(11, num.toInt());
 }
 
 TEST(Number, NextPrime25) {

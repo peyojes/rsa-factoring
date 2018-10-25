@@ -56,6 +56,7 @@ inline bool Number::IsPrimeStartMiddle() const {
 }
 
 inline void Number::NextPrime() {
+  this->operator++();
   for (; !this->IsPrime();this->operator++());
 }
 
