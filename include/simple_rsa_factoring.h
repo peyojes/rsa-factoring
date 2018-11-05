@@ -1,7 +1,7 @@
 #ifndef SIMPLE_RSA_FACTORING_H
 #define SIMPLE_RSA_FACTORING_H
 
-#include "factoring_method_interface.h"
+#include "factoring_method.h"
 
 class SimpleRsaFactoringStartingFromBeginning
     : public FactoringMethod {

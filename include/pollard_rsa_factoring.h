@@ -1,6 +1,6 @@
 #ifndef POLLARD_RSA_FACTORING_H
 #define POLLARD_RSA_FACTORING_H
-#include "factoring_method_interface.h"
+#include "factoring_method.h"
 #include "rsa_data.h"
 
 class PollardRsaFactoring : public FactoringMethod {

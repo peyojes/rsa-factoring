@@ -1,6 +1,6 @@
 #ifndef WISNIEWSKI_RSA_FACTORING_H
 #define WISNIEWSKI_RSA_FACTORING_H
-#include "factoring_method_interface.h"
+#include "factoring_method.h"
 #include "rsa_data.h"
 
 #include <vector>
