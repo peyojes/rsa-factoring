@@ -5,7 +5,7 @@
 
 #include <vector>
 
-class WisniewskiRsaFactoring : public RsaData, FactoringMethodInterface {
+class WisniewskiRsaFactoring : public FactoringMethod {
  public:
   void Factoring();
  private:

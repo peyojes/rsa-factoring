@@ -10,7 +10,7 @@ TEST(PrimeGenerator, generatePrimeWithOneDigits) {
 
 TEST(PrimeGenerator, generatePrimeWithThreeDigits) {
   PrimeGenerator prime_generator;
-  Number number(prime_generator.GeneratePrime(3));
+  Number number(prime_generator.GeneratePrime(4));
   EXPECT_TRUE(number.IsPrime());
   std::cout << "Prime: " << number << "\n";
 }

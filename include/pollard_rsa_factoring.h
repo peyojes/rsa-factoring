@@ -3,7 +3,7 @@
 #include "factoring_method_interface.h"
 #include "rsa_data.h"
 
-class PollardRsaFactoring : public RsaData, FactoringMethodInterface {
+class PollardRsaFactoring : public FactoringMethod {
  public:
   void Factoring();
  private:

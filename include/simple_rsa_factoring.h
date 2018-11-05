@@ -4,7 +4,7 @@
 #include "factoring_method_interface.h"
 
 class SimpleRsaFactoringStartingFromBeginning
-    : public RsaData, FactoringMethodInterface {
+    : public FactoringMethod {
  public:
   void Factoring();
 

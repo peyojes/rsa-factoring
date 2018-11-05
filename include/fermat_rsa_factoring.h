@@ -3,7 +3,7 @@
 #include "rsa_data.h"
 #include "factoring_method_interface.h"
 
-class FermatRsaFactoring : public RsaData, FactoringMethodInterface {
+class FermatRsaFactoring : public FactoringMethod {
  public:
   void Factoring();
 };
