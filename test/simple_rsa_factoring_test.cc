@@ -21,7 +21,6 @@ TEST(SimpleRsaFactoringStartingFromBeginning, factoring) {
 
   EXPECT_TRUE(result);
   EXPECT_EQ(20, simp_factor.GetValueOfEulerFunction().toInt());
-  EXPECT_EQ(3, simp_factor.GetPrivateKey().toInt());
   EXPECT_EQ(7, simp_factor.GetPublicKey().toInt());
 }
 TEST(SimpleRsaFactoringStartingFromBeginning, moreComplicatedFactoring) {
@@ -38,7 +37,6 @@ TEST(SimpleRsaFactoringStartingFromBeginning, moreComplicatedFactoring) {
 
   EXPECT_TRUE(result);
   EXPECT_EQ(120, simp_factor.GetValueOfEulerFunction().toInt());
-  EXPECT_EQ(113, simp_factor.GetPrivateKey().toInt());
   EXPECT_EQ(17, simp_factor.GetPublicKey().toInt());
 }
 
@@ -56,6 +54,5 @@ TEST(SimpleRsaFactoringStartingFromMiddle, factoring) {
 
   EXPECT_TRUE(result);
   EXPECT_EQ(120, simp_factor.GetValueOfEulerFunction().toInt());
-  EXPECT_EQ(113, simp_factor.GetPrivateKey().toInt());
   EXPECT_EQ(17, simp_factor.GetPublicKey().toInt());
 }

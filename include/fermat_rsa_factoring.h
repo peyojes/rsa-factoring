@@ -21,6 +21,6 @@ void FermatRsaFactoring::Factoring() {
   p_ = a - b.intSqrt();
   q_ = a + b.intSqrt();
   CalculateEulerFunction();
-  FindPrivateKey();
+//  FindPrivateKey();
 }
 #endif  // FERMAT_RSA_FACTORING_H

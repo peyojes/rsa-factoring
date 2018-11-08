@@ -15,11 +15,14 @@ class WisniewskiRsaFactoring : public FactoringMethod {
 };
 
 inline void WisniewskiRsaFactoring::Factoring() {
-  Number  first_member[4], second_member[4], modulo_result[4], x(1), six(6);
+  Number  first_member[4], second_member[4], modulo_result[4], six(6);
+  Number sqrt(GetModulus().intSqrt());
+  sqrt++;
+  Number x((sqrt / 6) + 2);
   bool is_find = false;
   int number_of_equation = -1;
   while (!is_find) {
-    x++;
+    x--;
 
     first_member[0] = six * ((x * six) + 1);
     first_member[1] = six * ((x * six) - 1);
@@ -50,7 +53,7 @@ inline void WisniewskiRsaFactoring::CalculatePQAndPrivateKey(
 
   q_ = GetModulus() / p_;
   CalculateEulerFunction();
-  FindPrivateKey();
+//  FindPrivateKey();
 }
 
 inline bool WisniewskiRsaFactoring::IsFound(const Number *mod_results,

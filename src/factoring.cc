@@ -44,19 +44,17 @@ int main(int argc, char *argv[]) {
     return 0;
   }
   Timer timer;
-  CSVReader<5> in(argv[2]);
+  CSVReader<3> in(argv[2]);
   in.read_header(
-        io::ignore_extra_column, "rsa_number","pub_key", "priv_key", "p", "q");
-  string rsa_number, pub_key, priv_key, p, q;
-  while (in.read_row(rsa_number, pub_key, priv_key, p, q)) {
+        io::ignore_extra_column, "rsa_number","p", "q");
+  string rsa_number, p, q;
+  while (in.read_row(rsa_number, p, q)) {
     timer.reset();
     timer.start();
     factoring->SetModulus(rsa_number);
-    factoring->SetPublicKey(pub_key);
     factoring->Factoring();
     timer.stop();
-    cout << "You took " << timer.count<std::chrono::seconds>() << " seconds." << std::endl;
-    cout << "Private key: " << priv_key << "\t" << factoring->GetPrivateKey() << "\n";
+    cout << "It has taken " << timer.count<std::chrono::seconds>() << " seconds." << std::endl;
     cout << "P: " << p << "\t" << factoring->GetP() << "\n";
     cout << "Q: " << q << "\t" << factoring->GetQ() << "\n";
 //    cout << rsa_number << "\t" << p << "\t" << q << "\n";

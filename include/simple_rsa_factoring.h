@@ -44,7 +44,7 @@ void SimpleRsaFactoringStartingFromBeginning::CalculatePQAndPrivateKey(
   p_ = iterator;
   q_ = GetModulus() / iterator;
   CalculateEulerFunction();
-  FindPrivateKey();
+//  FindPrivateKey();
 }
 
 void SimpleRsaFactoringStartingFromMiddle::Factoring() {

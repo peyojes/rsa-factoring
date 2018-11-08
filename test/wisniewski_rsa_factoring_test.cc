@@ -22,6 +22,5 @@ TEST(WisniewskiRsaFactoring, factoring) {
 
   EXPECT_TRUE(result);
   EXPECT_EQ(5800, factoring.GetValueOfEulerFunction().toInt());
-  EXPECT_EQ(4113, factoring.GetPrivateKey().toInt());
   EXPECT_EQ(777, factoring.GetPublicKey().toInt());
 }

@@ -16,7 +16,7 @@ inline void PollardRsaFactoring::Factoring() {
   p_ = factor;
   q_ = GetModulus() / factor;
   CalculateEulerFunction();
-  FindPrivateKey();
+//  FindPrivateKey();
 }
 
 inline void PollardRsaFactoring::CalculateFactor(Number &factor) {

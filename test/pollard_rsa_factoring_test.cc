@@ -20,6 +20,5 @@ TEST(RhoPollandaFactoring, factoring) {
 
   EXPECT_TRUE(result);
   EXPECT_EQ(120, factoring.GetValueOfEulerFunction().toInt());
-  EXPECT_EQ(113, factoring.GetPrivateKey().toInt());
   EXPECT_EQ(17, factoring.GetPublicKey().toInt());
 }
