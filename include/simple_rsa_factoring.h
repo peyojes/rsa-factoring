@@ -1,3 +1,8 @@
+/*
+ * g++ factoring.cc -o factoring -lpthread
+ */
+
+
 #ifndef SIMPLE_RSA_FACTORING_H
 #define SIMPLE_RSA_FACTORING_H
 
@@ -29,13 +34,11 @@ void SimpleRsaFactoringStartingFromBeginning::Factoring() {
 }
 
 void SimpleRsaFactoringStartingFromBeginning::CalculateIfItIsPrime(
-    const Number &iterator,
-    Number &rest_with_division) {
-  if (iterator.IsPrime()) {
-    rest_with_division = GetModulus() % iterator;
-    if (rest_with_division == 0) {
-      CalculatePQAndPrivateKey(iterator);
-    }
+  const Number &iterator,
+  Number &rest_with_division) {
+  rest_with_division = GetModulus() % iterator;
+  if (rest_with_division == 0) {
+    CalculatePQAndPrivateKey(iterator);
   }
 }
 
