@@ -10,6 +10,7 @@
 #include "../include/pollard_rsa_factoring.h"
 #include "../include/simple_rsa_factoring.h"
 #include "../include/wisniewski_rsa_factoring.h"
+#include "../include/pollard_with_wisniewski_rsa_factoring.h"
 #include "../include/cxxtimer.hpp"
 
 using std::cout;
@@ -45,7 +46,8 @@ int main(int argc, char *argv[]) {
   if (argc != 4) {
     cout << "Wrong input parameters!\n"
               "\tusage: a.out method_factoring file.csv save_flag\n"
-            "method_factoring: fermat pollard simple_beg simple_mid wisniewski\n"
+            "method_factoring: fermat pollard simple_beg simple_mid wisniewski "
+            "pollard_wisniewski\n"
             "save_flag: true or false\n";
     return 0;
   }
@@ -56,6 +58,7 @@ int main(int argc, char *argv[]) {
   SimpleRsaFactoringStartingFromBeginning simple_factoring_beg;
   SimpleRsaFactoringStartingFromMiddle simple_factoring_mid;
   WisniewskiRsaFactoring wisniewski_rsa_factoring;
+  PollardWithWisniewskiRsaFactoring pollard_with_wisniewski_factoring;
 
   if (method_factoring == "fermat") {
     factoring = &fermat_rsa_factoring;
@@ -67,6 +70,8 @@ int main(int argc, char *argv[]) {
     factoring = &simple_factoring_mid;
   } else if (method_factoring == "wisniewski") {
     factoring = &wisniewski_rsa_factoring;
+  } else if (method_factoring == "pollard_wisniewski") {
+    factoring = &pollard_with_wisniewski_factoring;
   } else {
     cout << "Wronge name of factoring method\n";
     return 0;
@@ -101,10 +106,8 @@ int main(int argc, char *argv[]) {
     cout << "current data time " << CurrentDateTime() << "\n";
     if (save_to_file) {
       file_saver.SaveToFile(results);
-      file_saver.SaveToFile(results);
     }
   }
-
 
   return 0;
 }
