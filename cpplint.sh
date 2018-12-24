@@ -1,4 +1,5 @@
-cpplint include/factoring_method.h \
+cpplint --filter=-build/header_guard,-build/include_subdir,-runtime/explicit,-runtime/references \
+	include/factoring_method.h \
 	include/fermat_rsa_factoring.h \
 	include/number.h \
 	include/pollard_rsa_factoring.h \

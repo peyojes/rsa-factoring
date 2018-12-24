@@ -1,9 +1,14 @@
+/**
+  * @name rsa_data.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef RSA_DATA_HPP_
 #define RSA_DATA_HPP_
 
-#include "number.h"
-
 #include<iostream>
+
+#include "number.h"
 
 class RsaData {
  public:
@@ -19,14 +24,14 @@ class RsaData {
   void SetModulus(const Number& mod);
   void SetPublicKey(const Number& public_key);
 
-protected:
+ protected:
   void FindPrivateKey();
   void CalculateEulerFunction();
   Number private_key_;
   Number p_;
   Number q_;
 
-private:
+ private:
   Number value_of_euler_fun_;
   Number public_key_;
   Number modulus_;
@@ -38,7 +43,6 @@ inline RsaData::RsaData(): p_(kZero), q_(kZero), value_of_euler_fun_(kZero),
 
 inline RsaData::RsaData(const Number &p, const Number &q)
   :p_(p), q_(q), value_of_euler_fun_((p-1)*(q-1)), modulus_(p*q) {
-
   Number it = value_of_euler_fun_ / kTwo;
   for (; it < value_of_euler_fun_; it++) {
     if (it.IsRelativelyPrime(value_of_euler_fun_) &&

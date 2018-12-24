@@ -1,6 +1,12 @@
+/**
+  * @name prime_generator_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
-#include "../include/prime_generator.h"
 #include <iostream>
+
+#include "../include/prime_generator.h"
 
 TEST(PrimeGenerator, generatePrimeWithOneDigits) {
   PrimeGenerator prime_generator;

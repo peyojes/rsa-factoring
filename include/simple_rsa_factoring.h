@@ -1,6 +1,8 @@
-/*
- * g++ factoring.cc -o factoring -lpthread
- */
+/**
+  * @name simple_rsa_factoring.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 
 
 #ifndef SIMPLE_RSA_FACTORING_H
@@ -56,5 +58,5 @@ void SimpleRsaFactoringStartingFromMiddle::Factoring() {
     CalculateIfItIsPrime(it, rest_with_division);
   }
 }
-#endif // SIMPLE_RSA_FACTORING_H
+#endif  // SIMPLE_RSA_FACTORING_H
 

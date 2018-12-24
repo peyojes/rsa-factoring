@@ -1,3 +1,8 @@
+/**
+  * @name number_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
 #include "../include/number.h"
 

@@ -1,3 +1,8 @@
+/**
+  * @name multiplication.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <string>
 #include <iostream>
 
@@ -7,7 +12,6 @@ using std::string;
 using std::cout;
 
 int main(int argc, char **argv) {
-
   if (argc != 3) {
     cout << "Wrong input parameters!\n"
               "\tusage: a.out number number\n";

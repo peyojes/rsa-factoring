@@ -1,3 +1,8 @@
+/**
+  * @name number.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef NUMBER_H_
 #define NUMBER_H_
 
@@ -23,7 +28,6 @@ class Number : public InfInt {
   Number AbsolutSubtraction(const Number& num);
   Number Gcd(const Number& num) const;
   bool IsSqrt() const;
-
 };
 
 inline bool Number::IsPrime() const {
@@ -57,7 +61,8 @@ inline bool Number::IsPrimeStartMiddle() const {
 
 inline void Number::NextPrime() {
   this->operator++();
-  for (; !this->IsPrime();this->operator++());
+  for (; !this->IsPrime(); this->operator++()) {
+  }
 }
 
 inline bool Number::IsRelativelyPrime(const Number &num) {
@@ -67,7 +72,7 @@ inline bool Number::IsRelativelyPrime(const Number &num) {
   Number it(kTwo), modulo_result_this, modulo_result_num;
   bool result = true;
 
-  for (;it <= limit_num; it++) {
+  for (; it <= limit_num; it++) {
     modulo_result_this = *this % it;
     modulo_result_num = num % it;
 

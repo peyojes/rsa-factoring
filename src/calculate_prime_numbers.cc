@@ -1,9 +1,16 @@
-#include "../include/number.h"
+/**
+  * @name calculate_prime_numbers.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
+
+#include "../include/number.h"
 #include"../include/cxxtimer.hpp"
+
 using std::cout;
 using std::ofstream;
 using std::vector;
@@ -12,15 +19,14 @@ using cxxtimer::Timer;
 
 void SaveToFile(ofstream& file, const vector<string> numbers) {
   for (unsigned int it = 0; it < numbers.size(); it++) {
-   file << numbers[it] << "\n";
+    file << numbers[it] << "\n";
   }
 }
 
 int main(int argc, char *argv[]) {
-
   if (argc != 4) {
     cout << "Wronge input parameters.\n"
-         << "Usage: \tcalculate_prime_number.out begin_number end_number file\n";
+        << "Usage: \tcalculate_prime_number.out begin_number end_number file\n";
     return 0;
   }
 
@@ -33,7 +39,7 @@ int main(int argc, char *argv[]) {
 
 
   ofstream file;
-  file.open (argv[3], std::ios::out);
+  file.open(argv[3], std::ios::out);
   if (!file.is_open()) {
     cout << "error: can not open the file with this name" << argv[3] << "\n";
     return 0;

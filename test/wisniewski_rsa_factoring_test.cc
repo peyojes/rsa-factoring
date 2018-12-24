@@ -1,10 +1,15 @@
+/**
+  * @name wisniewski_rsa_factoring_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
 
 #include "../include/wisniewski_rsa_factoring.h"
 
 TEST(WisniewskiRsaFactoring, emptyInitialization) {
   WisniewskiRsaFactoring factoring;
-  EXPECT_EQ(0,factoring.GetModulus().toInt());
+  EXPECT_EQ(0, factoring.GetModulus().toInt());
 }
 
 TEST(WisniewskiRsaFactoring, factoring) {

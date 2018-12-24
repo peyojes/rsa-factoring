@@ -1,3 +1,8 @@
+/**
+  * @name pollard_rsa_factoring.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef POLLARD_RSA_FACTORING_H
 #define POLLARD_RSA_FACTORING_H
 #include "factoring_method.h"

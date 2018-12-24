@@ -1,6 +1,12 @@
-#include "../include/prime_generator.h"
-#include <iostream>
+/**
+  * @name generate_primes.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <cstdlib>
+#include <iostream>
+
+#include "../include/prime_generator.h"
 
 using std::cout;
 

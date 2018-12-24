@@ -1,3 +1,8 @@
+/**
+  * @name simple_rsa_factoring_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
 
 #include "../include/simple_rsa_factoring.h"

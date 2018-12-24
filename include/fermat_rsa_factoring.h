@@ -1,3 +1,8 @@
+/**
+  * @name fermat_rsa_factoring.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef FERMAT_RSA_FACTORING_H
 #define FERMAT_RSA_FACTORING_H
 #include "rsa_data.h"

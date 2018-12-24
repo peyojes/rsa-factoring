@@ -1,3 +1,8 @@
+/**
+  * @name rsa_data_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
 
 #include "../include/rsa_data.h"

@@ -1,7 +1,12 @@
-#include <iostream>
-#include <string>
+/**
+  * @name factoring.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <stdio.h>
 #include <time.h>
+#include <iostream>
+#include <string>
 #include <fstream>
 
 #include "../include/csv.h"
@@ -84,7 +89,7 @@ int main(int argc, char *argv[]) {
   Timer timer;
   CSVReader<3> in(argv[2]);
   in.read_header(
-        io::ignore_extra_column, "rsa_number","p", "q");
+        io::ignore_extra_column, "rsa_number", "p", "q");
   string rsa_number, p, q;
   std::vector<FactoringResult> results;
   FileSaver file_saver;
@@ -97,10 +102,11 @@ int main(int argc, char *argv[]) {
     factoring->SetModulus(rsa_number);
     factoring->Factoring();
     timer.stop();
-    FactoringResult result(rsa_number,factoring->GetP(), factoring->GetQ(),
+    FactoringResult result(rsa_number, factoring->GetP(), factoring->GetQ(),
                            timer.count<seconds>());
     results.push_back(result);
-    cout << "It has taken " << timer.count<std::chrono::seconds>() << " seconds." << std::endl;
+    cout << "It has taken " << timer.count<std::chrono::seconds>()
+         << " seconds." << std::endl;
     cout << "P: " << p << "\t" << factoring->GetP() << "\n";
     cout << "Q: " << q << "\t" << factoring->GetQ() << "\n";
     cout << "current data time " << CurrentDateTime() << "\n";
@@ -114,9 +120,9 @@ int main(int argc, char *argv[]) {
 
 const string CurrentDateTime() {
     time_t     now = time(0);
-    struct tm  tstruct;
-    char       buf[80];
-    tstruct = *localtime(&now);
+    struct tm  tstruct, result;
+    char buf[80];
+    tstruct = *localtime_r(&now, &result);
     strftime(buf, sizeof(buf), "%d-%m-%Y_%X", &tstruct);
 
     return buf;
@@ -144,10 +150,9 @@ void FileSaver::SaveToFile(std::vector<FactoringResult> &results) {
   std::ofstream output_file(file_);
   if (output_file.is_open()) {
     output_file << "rsa_number,p,q,time\n";
-    for(FactoringResult result: results) {
+    for (FactoringResult result : results) {
       output_file << result.GetLineToCsv() + "\n";
     }
     output_file.close();
   }
-
 }

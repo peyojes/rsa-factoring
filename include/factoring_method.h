@@ -1,3 +1,8 @@
+/**
+  * @name factoring_method.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef FACTORING_METHOD
 #define FACTORING_METHOD
 #include "rsa_data.h"

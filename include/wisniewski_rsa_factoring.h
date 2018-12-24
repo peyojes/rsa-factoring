@@ -1,10 +1,15 @@
+/**
+  * @name wisniewski_rsa_factoring.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef WISNIEWSKI_RSA_FACTORING_H
 #define WISNIEWSKI_RSA_FACTORING_H
-#include "factoring_method.h"
-#include "rsa_data.h"
-
 #include <vector>
 #include <iostream>
+
+#include "factoring_method.h"
+#include "rsa_data.h"
 
 class WisniewskiRsaFactoring : public FactoringMethod {
  public:
