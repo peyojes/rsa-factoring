@@ -1,3 +1,8 @@
+/**
+  * @name number_test.cc
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #include <gtest/gtest.h>
 #include "../include/number.h"
 
@@ -44,9 +49,9 @@ TEST(Number, IsPrime20False) {
 }
 
 TEST(Number, NextPrime4) {
-  Number num(4);
+  Number num(7);
   num.NextPrime();
-  EXPECT_EQ(5, num.toInt());
+  EXPECT_EQ(11, num.toInt());
 }
 
 TEST(Number, NextPrime25) {
@@ -65,4 +70,42 @@ TEST(Number, IsReletivelyPrimeFalse14and21) {
   Number num14(14), num21(21);
   EXPECT_FALSE(num14.IsRelativelyPrime(num21));
   EXPECT_FALSE(num21.IsRelativelyPrime(num14));
+}
+
+TEST(Number, IsReletivelyPrimeFalse2and14) {
+  Number num14(14), num2(2);
+  EXPECT_FALSE(num14.IsRelativelyPrime(num2));
+  EXPECT_FALSE(num2.IsRelativelyPrime(num14));
+}
+
+TEST(Number, IsPrimeStartForMiddleFalse) {
+  Number number(10);
+  EXPECT_FALSE(number.IsPrimeStartMiddle());
+}
+
+TEST(Number, IsPrimeStartForMiddleTrue) {
+  Number number(103);
+  EXPECT_TRUE(number.IsPrimeStartMiddle());
+}
+
+TEST(Number, Absolute) {
+  Number num1(10), num2(15);
+  EXPECT_EQ(5, num1.AbsolutSubtraction(num2).toInt());
+  EXPECT_EQ(5, num2.AbsolutSubtraction(num1).toInt());
+}
+
+TEST(Number, Gcd) {
+  Number num1(20), num2(200);
+  EXPECT_EQ(20, num1.Gcd(num2).toInt());
+  EXPECT_EQ(20, num2.Gcd(num1).toInt());
+}
+
+TEST(Number, IsSqrtTrue) {
+  Number num(25);
+  EXPECT_TRUE(num.IsSqrt());
+}
+
+TEST(Number, IsSqrtFalse) {
+  Number num(20);
+  EXPECT_FALSE(num.IsSqrt());
 }

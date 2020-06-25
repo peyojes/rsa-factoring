@@ -1,3 +1,8 @@
+/**
+  * @name number.h
+  * @author Pawel Jesionkowski
+  * @copyright Copyright 2018 Pawel Jesionkowski. All rights reserved.
+  */
 #ifndef NUMBER_H_
 #define NUMBER_H_
 
@@ -16,12 +21,16 @@ class Number : public InfInt {
   Number(const std::string& number): InfInt(number) {}
   Number(const InfInt& number): InfInt(number) {}
 
-  bool IsPrime();
+  bool IsPrime() const;
+  bool IsPrimeStartMiddle() const;
   void NextPrime();
   bool IsRelativelyPrime(const Number &num);
+  Number AbsolutSubtraction(const Number& num);
+  Number Gcd(const Number& num) const;
+  bool IsSqrt() const;
 };
 
-bool Number::IsPrime() {
+inline bool Number::IsPrime() const {
   Number it(kTwo), tmp, sqrt = intSqrt();
   bool result = true;
   sqrt++;
@@ -36,17 +45,34 @@ bool Number::IsPrime() {
   return result;
 }
 
-void Number::NextPrime() {
-  for (; !this->IsPrime();this->operator++());
+inline bool Number::IsPrimeStartMiddle() const {
+  Number it(intSqrt()++), tmp;
+  bool result = true;
+  for (; it >= 2; it--) {
+    tmp = *this % it;
+    if (tmp == kZero) {
+      result = false;
+      break;
+    }
+  }
+
+  return result;
 }
 
-bool Number::IsRelativelyPrime(const Number &num) {
-  Number greater_num = *this < num ? *this: num;
-  Number limit_num = greater_num / kTwo;
+inline void Number::NextPrime() {
+  this->operator++();
+  for (; !this->IsPrime(); this->operator++()) {
+  }
+}
+
+inline bool Number::IsRelativelyPrime(const Number &num) {
+  Number greater_num = *this < num ? num: *this;
+  Number less_num = *this < num ? *this: num;
+  Number limit_num = less_num / kTwo;
   Number it(kTwo), modulo_result_this, modulo_result_num;
   bool result = true;
 
-  for (;it <= limit_num; it++) {
+  for (; it <= limit_num; it++) {
     modulo_result_this = *this % it;
     modulo_result_num = num % it;
 
@@ -56,7 +82,30 @@ bool Number::IsRelativelyPrime(const Number &num) {
     }
   }
 
+  if (greater_num % less_num == 0) {
+    result = false;
+  }
+
   return result;
 }
 
-#endif //  NUMBER_H_
+inline Number Number::AbsolutSubtraction(const Number &num) {
+  return *this > num ? *this - num: num - *this;
+}
+
+inline Number Number::Gcd(const Number &num) const {
+  Number remainder, this_value(*this), num_value(num), zero(0);
+  while (num_value != zero) {
+    remainder = this_value % num_value;
+    this_value = num_value;
+    num_value = remainder;
+  }
+  return this_value;
+}
+
+inline bool Number::IsSqrt() const {
+  return intSqrt() * intSqrt() == *this ? true : false;
+}
+
+#endif  // NUMBER_H_
+
